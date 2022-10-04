@@ -1,0 +1,48 @@
+version: '2'
+
+services:
+    test1:
+        image: httpd:latest
+        ports:
+            - 8083:80/tcp
+            - 8055:80/tcp
+        stdin_open: true # docker run -i
+        tty: true # docker run -t
+        
+        networks:
+            ipv4_address: 192.168.200.2
+        
+        volumes:
+            - ncc-vol-test: /var/test
+        
+    test2
+        image: tomcat:latest
+        ports:
+            - 9093:80/tcp
+            - 9055:80/tcp
+        stdin_open: true 	# docker run -i
+        tty: true 		# docker run -t
+        
+        networks:
+            ipv4_address: 192.168.200.3
+        
+        volumes:
+            - ncc-vol-test: /var/test
+        
+
+
+
+
+volumes: 
+    ncc-vol-test
+
+networks:
+    ncc-network-test:
+        driver: bridge
+        driver_opts:
+            com.docker.network.bridge.name: ncc-int-test
+            
+    ipam:
+        config:
+            - subnet: 192.168.200.0/24
+                gateway: 192.168.200.1
