@@ -7,7 +7,7 @@ services:
             - 8083:80/tcp
             - 8055:80/tcp
         stdin_open: true # docker run -i
-        tty: true # docker run -t
+        tty: true        # docker run -t
         
         networks:
             ipv4_address: 192.168.200.2
@@ -20,8 +20,8 @@ services:
         ports:
             - 9093:80/tcp
             - 9055:80/tcp
-        stdin_open: true 	# docker run -i
-        tty: true 		# docker run -t
+        stdin_open: true # docker run -i
+        tty: true 		 # docker run -t
         
         networks:
             ipv4_address: 192.168.200.3
